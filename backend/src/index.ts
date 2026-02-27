@@ -19,10 +19,10 @@ app.use('/api/schools', schoolRoutes);
 app.get('/api/health', (req: Request, res: Response) => {
   res.json({ 
     status: 'success', 
-    message: 'Ether School OS Backend is active and breathing.' 
+    message: 'Ether School OS Backend is active.' 
   });
 });
 
 app.listen(PORT, () => {
-  console.log(`🚀 Server is running on http://localhost:${PORT}`);
+  console.log(`Server is running on http://localhost:${PORT}`);
 });
