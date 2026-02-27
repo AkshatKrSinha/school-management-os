@@ -1,6 +1,5 @@
 CREATE DATABASE IF NOT EXISTS school_management_os;
 USE school_management_os;
-
 CREATE TABLE schools (
     id INT AUTO_INCREMENT PRIMARY KEY,
     school_name VARCHAR(255) NOT NULL,
@@ -9,7 +8,6 @@ CREATE TABLE schools (
     phone_number VARCHAR(20),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
-
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     school_id INT NOT NULL,
@@ -21,7 +19,6 @@ CREATE TABLE users (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (school_id) REFERENCES schools(id) ON DELETE CASCADE
 );
-
 CREATE TABLE classrooms (
     id INT AUTO_INCREMENT PRIMARY KEY,
     school_id INT NOT NULL,
@@ -31,7 +28,6 @@ CREATE TABLE classrooms (
     FOREIGN KEY (school_id) REFERENCES schools(id) ON DELETE CASCADE,
     FOREIGN KEY (class_teacher_id) REFERENCES users(id) ON DELETE SET NULL
 );
-
 CREATE TABLE students (
     id INT AUTO_INCREMENT PRIMARY KEY,
     school_id INT NOT NULL,
@@ -48,6 +44,8 @@ CREATE TABLE students (
     FOREIGN KEY (classroom_id) REFERENCES classrooms(id) ON DELETE SET NULL
 );
 
+INSERT INTO schools (school_name, address,contact_email,phone_number) VALUES ('FirstInput Academy', 'HB2 VNIT Nagpur','xxxxxxxxxx','0000000000');
+SELECT * FROM schools;
 
 
 

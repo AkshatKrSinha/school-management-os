@@ -2,6 +2,7 @@ import express, { Request, Response } from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import './config/db';
+import schoolRoutes from './routes/schoolRoutes';
 
 // Initialize environment variables
 dotenv.config();
@@ -12,6 +13,7 @@ const PORT = process.env.PORT || 5000;
 // Middleware
 app.use(cors());
 app.use(express.json()); // Essential for reading JSON data from the frontend
+app.use('/api/schools', schoolRoutes);
 
 // Health Check Route
 app.get('/api/health', (req: Request, res: Response) => {
