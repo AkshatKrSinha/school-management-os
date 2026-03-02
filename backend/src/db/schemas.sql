@@ -48,4 +48,6 @@ INSERT INTO schools (school_name, address,contact_email,phone_number) VALUES ('F
 SELECT * FROM schools;
 
 
+SELECT * FROM users;
 
+SELECT * FROM students;

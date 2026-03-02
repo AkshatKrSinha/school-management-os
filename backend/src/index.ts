@@ -1,8 +1,10 @@
 import express, { Request, Response } from 'express';
 import cors from 'cors';
-import dotenv from 'dotenv';
 import './config/db';
+import dotenv from 'dotenv';
 import schoolRoutes from './routes/schoolRoutes';
+import authRoutes from './routes/authRoutes';
+import studentRoutes from './routes/studentRoutes';
 
 // Initialize environment variables
 dotenv.config();
@@ -14,6 +16,8 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json()); // Essential for reading JSON data from the frontend
 app.use('/api/schools', schoolRoutes);
+app.use('/api/auth', authRoutes); // This activates the authorization routes
+app.use('/api/students', studentRoutes);
 
 // Health Check Route
 app.get('/api/health', (req: Request, res: Response) => {

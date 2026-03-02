@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import db from '../config/db';
+
 export const getAllSchools = async (req: Request, res: Response) => {
   try {
     const [rows] = await db.query('SELECT * FROM schools');
